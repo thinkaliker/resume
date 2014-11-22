@@ -19,11 +19,21 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+\documentclass[print]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\makeatletter
+\renewenvironment{entrylist}{%
+	\par\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+	}{%
+\end{tabular*}\par
+}  
+\makeatother
+
 
 \begin{document}
 
-\header{Adam}{Chao}{Student} % Your name and current job title/field
+\header{Adam}{Chao}
+{Student} % Your name and current job title/field
 
 %----------------------------------------------------------------------------------------
 %	SIDEBAR SECTION
@@ -31,23 +41,11 @@
 
 \begin{aside} % In the aside, each new line forces a line break
 \section{contact}
-123 Broadway
-City, State 12345
-Country
-~
-+0 (000) 111 1111
-+0 (000) 111 1112
-~
-\href{mailto:john@smith.com}{john@smith.com}
-\href{http://www.smith.com}{http://www.smith.com}
-\href{http://facebook.com/johnsmith}{fb://jsmith}
-\section{languages}
-english mother tongue
-spanish \& italian fluency
-\section{programming}
-{\color{red} $\varheartsuit$} JavaScript
-Python, C++, PHP
-CSS3 \& HTML5
+Please contact for additional details.
+\href{mailto:me@adamchao.me}{me@adamchao.me}
+\href{http://adamchao.me}{http://adamchao.me}
+\section{skills}
+HTML, CSS, C, C++, Java, JavaFX, Microsoft Office, Microsoft Windows, Video Editing, Graphic Design
 \end{aside}
 
 %----------------------------------------------------------------------------------------
@@ -59,17 +57,12 @@ CSS3 \& HTML5
 \begin{entrylist}
 %------------------------------------------------
 \entry
-{2011--2012}
-{Masters {\normalfont of Commerce}}
-{The University of California, Berkeley}
-{\emph{Money Is The Root Of All Evil -- Or Is It?} \\ This thesis explored the idea that money has been the cause of untold anguish and suffering in the world. I found that it has, in fact, not.}
-%------------------------------------------------
-\entry
-{2007--2008}
-{Bachelor {\normalfont of Business Studies}}
-{The University of California, Berkeley}
-{Specialization in Commerce}
-%------------------------------------------------
+	{June 2017}
+	{B.S. Computer Science}
+	{Riverside, CA}
+	{University of California, Riverside}
+	
+	%------------------------------------------------
 \end{entrylist}
 
 %----------------------------------------------------------------------------------------
@@ -84,8 +77,8 @@ CSS3 \& HTML5
 {2012--Now}
 {LEHMAN BROTHERS}
 {Los Angeles, California}
-{\emph{1\textsuperscript{st} Year Analyst} \\
-Developed spreadsheets for risk analysis on exotic derivatives on a wide array of commodities (ags, oils, precious and base metals), managed blotter and secondary trades on structured notes, liaised with Middle Office, Sales and Structuring for bookkeeping. \\
+{\emph{1\textsuperscript{st} Year Analyst}
+Developed spreadsheets for risk analysis on exotic 
 Detailed achievements:
 \begin{itemize}
 \item Learned how to make amazing coffee
@@ -106,15 +99,15 @@ Detailed achievements:
 {2010--2011}
 {LEHMAN BROTHERS}
 {London, United Kingdom}
-{\emph{Summer Intern} \\
+{\emph{Summer Intern}
 Rated "truly distinctive" for Analytical Skills and Teamwork.}
 %------------------------------------------------
 \entry
 {2008-2009}
 {Buy More}
 {Burbank, California}
-{\emph{Computer Repair Specialist} \\
-Worked in the Nerd Herd and helped to solve computer problems by asking customers to turn their computers off and on again.}
+{\emph{Computer Repair Specialist}
+Worked in the Nerd Herd and h}
 %------------------------------------------------
 \end{entrylist}
 
@@ -134,27 +127,7 @@ Worked in the Nerd Herd and helped to solve computer problems by asking customer
 %------------------------------------------------
 \end{entrylist}
 
-%----------------------------------------------------------------------------------------
-%	COMMUNICATION SKILLS SECTION
-%----------------------------------------------------------------------------------------
 
-\section{communication skills}
-
-\begin{entrylist}
-%------------------------------------------------
-\entry
-{2011}
-{Oral Presentation}
-{California Business Conference}
-{Presented the research I conducted for my Masters of Commerce degree.}
-%------------------------------------------------
-\entry
-{2010}
-{Poster}
-{Annual Business Conference, Oregon}
-{As part of the course work for BUS320, I created a poster analyzing several local businesses and presented this at a conference.}
-%------------------------------------------------
-\end{entrylist}
 
 %----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
