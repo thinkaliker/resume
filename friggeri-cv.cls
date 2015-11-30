@@ -19,6 +19,7 @@
 
 \definecolor{black}{HTML}{000000}
 \definecolor{lightgray}{HTML}{888888}
+\definecolor{medgray}{HTML}{333333}
 
 \definecolor{green}{HTML}{C2E15F}
 \definecolor{orange}{HTML}{FDA333}
@@ -51,7 +52,7 @@
 \usepackage{sourcesanspro}
 
 \newfontfamily\bodyfont[]{Source Sans Pro}
-\newfontfamily\thinfont[]{Source Sans Pro ExtraLight}
+\newfontfamily\thinfont[]{Source Sans Pro Light}
 \newfontfamily\headingfont[]{Source Sans Pro Bold}
 
 \defaultfontfeatures{Mapping=tex-text}
@@ -66,7 +67,7 @@
 \RequirePackage{tikz}
 
 \newcommand{\rolefont}{%
-  \fontsize{14pt}{24pt}\selectfont%
+  \fontsize{14pt}{20pt}\selectfont%
   \thinfont%
   \color{white}%
 }
@@ -76,16 +77,16 @@
     \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=2cm] (box) at (current page.north){};
     
     \node [anchor=north] (name) at (box) {%
-      \fontsize{40pt}{60pt}\color{header}%
-      {\thinfont #1}{\bodyfont  #2} \Huge{\thinfont - #3}
+      \fontsize{20pt}{10pt}\color{header}%
+      {\bodyfont #1 }{\bodyfont #2 }{\thinfont - #3}
     };
     \node [anchor=north] at (name.south) {%
-      \fontsize{14pt}{24pt}\color{header}%
+      \fontsize{14pt}{14pt}\color{header}%
       {\thinfont #4} -- {\thinfont #5}%
     };
   \end{tikzpicture}
-  \vspace{1cm}
-  \vspace{-2\parskip}
+  \vspace{0cm}
+
 }
 
 
@@ -97,7 +98,7 @@
 \renewcommand{\section}[1]{
   \par\vspace{\parskip}
   {%
-    \LARGE\headingfont\color{headercolor}
+    \fontsize{14pt}{12pt}\headingfont\color{headercolor}
     {\color{textcolor} #1}
   }
   \par\vspace{\parskip}
@@ -121,7 +122,7 @@
   #1&\parbox[t]{16cm}{%
     \textbf{#2}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
+    {\footnotesize\addfontfeature{Color=medgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
 
