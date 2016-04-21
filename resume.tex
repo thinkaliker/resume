@@ -1,7 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Friggeri Resume/CV
-% Modified by Adam Chao (thinkaliker)
-% XeLaTeX Template
+% Resume/CV
+% Heavily modified by Adam Chao (thinkaliker)
+% No longer requires class file
+% pdflatex OK
 %
 % Original author:
 % Adrien Friggeri (adrien@friggeri.net)
@@ -16,91 +17,165 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[print]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+\documentclass{article}
 
-\makeatletter
-\renewenvironment{entrylist}{%
-\par\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
-\end{tabular*}\par
-}  
-\makeatother
+\usepackage{xcolor, tikz, tabto, hanging}
+\usepackage[left=1.5cm,top=1.5cm,right=1.5cm,bottom=1.5cm,nohead,nofoot]{geometry}
 
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{black}{HTML}{000000}
+\definecolor{lightgray}{HTML}{888888}
+\definecolor{medgray}{HTML}{333333}
+
+\colorlet{fillheader}{white}
+\colorlet{header}{white}
+\colorlet{textcolor}{black}
+\colorlet{headercolor}{black}
+
+\usepackage[sfdefault]{roboto}
+
+\setlength{\parindent}{0.5cm}
+
+\newcommand{\entry}[5]{%
+	{\fontsize{11pt}{11pt} \parbox{2.75cm}{ #1 } }%
+	\parbox[t]{15cm}{%
+		\fontsize{11pt}{11pt}\textbf{#2}%
+		{\footnotesize\emph{-- #3}}%
+
+
+		{\fontsize{11pt}{11pt}%
+			\emph{#4}%
+		}
+		
+		
+		\parbox[t]{14.5cm}{
+			\hangparas{0.5cm}{1}
+			\fontsize{11pt}{11pt}	#5%
+		}
+	}
+	\vspace{0.2cm}%
+}
+
+\newcommand{\skill}[1]{%
+	\parbox[t]{1cm}{$\:$}
+	\parbox[t]{15cm}{%
+		\fontsize{11pt}{11pt}%
+		{%
+			\begin{raggedright}%
+				#1%
+			\end{raggedright}%
+		}
+	}
+	\\\vspace{0.1cm}%
+}
+
+\newcommand{\header}[5]{%
+	\begin{tikzpicture}[remember picture,overlay]
+	\node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3cm] (box) at (current page.north){};
+	
+	\node [anchor=north] (name) at (box) {%
+		\fontsize{20pt}{10pt}%
+		{\roboto #1 }{\roboto #2 }{\fontseries{l}\selectfont - #3}
+	};
+	\node [anchor=north] at (name.south) {%
+		\fontsize{14pt}{14pt}%
+		{\fontseries{l}\selectfont #4} -- {\fontseries{l}\selectfont #5}%
+	};
+	\end{tikzpicture}
+	\vspace{1cm}
+
+}
+
+\renewcommand{\section}[1]{
+	\par\vspace{0.1cm}
+	{%
+		\fontsize{12pt}{12pt}\fontseries{b}\selectfont
+		{#1}
+	}
+	\par\vspace{0.1cm}
+}
+
+\pagestyle{empty}
+%----------------------------------------------------------------------------------------
 
 \begin{document}
+
 %----------------------------------------------------------------------------------------
 %	BASIC INFORMATION SECTION
 %----------------------------------------------------------------------------------------
 
-\header{Adam}{Chao}
+\header
+{Adam}
+{Chao}
 {Student}
 {adam@adamchao.me}
 {http://adamchao.me}
 
-\hfill
+
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 
 \section{Education}
-\begin{entrylist}
-%------------------------------------------------
 \entry
 {June 2017}
-{B.S. Computer Science}
-{Riverside, California}
 {University of California, Riverside}
-%------------------------------------------------
-\end{entrylist}
+{Riverside, California}
+{Undergraduate Computer Science}
+{}
 
 %----------------------------------------------------------------------------------------
 %	SKILLS SECTION
 %----------------------------------------------------------------------------------------
 
 \section{Skills}
-HTML, CSS, Java, JavaScript, C++, Git, SVN, Graphic Design, Microsoft Office, Microsoft Windows, Linux, JIRA, IIS, Apache, Bootstrap
+\skill{Java, HTML, C++, CSS, JavaScript, C, Git/SVN, Graphic Design, Microsoft Windows, Linux, JIRA/Agile, IIS, Apache}
+
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
 \section{Technical Experience}
+\entry
+{Jun -- Sep 2015}
+{Northrop Grumman Corporation}
+{San Diego, California}
+{College Intern Technical - Medium Range Tactical Systems (MRTS) Control Segment}
+{
+	$\cdot$ Created a Java-based AIS ship simulator and a Sonobuoy message generator
+	
+	$\cdot$ Migrated and tested proprietary internal software features to new codebase
+	
+	$\cdot$ Used the Java WorldWind library and STANAG S4607 messaging protocol to draw MTI hits on a map
+	
+}
 
-\begin{entrylist}
-%------------------------------------------------
 \entry
-{Jan. -- May 2013}
+{Jun -- Sep 2014}
 {Northrop Grumman Corporation}
 {San Diego, California}
-{\emph{High School Involvement Program Intern} - Firebird Ground Control Segment (GCS)
-\begin{itemize}
-\item Created templates to efficiently create user interface icons displayed in a status panel
-\item Configured proprietary mapping software for use with Global Mapper to create map layers with imagery
-\item Created utilities and unit tests to convert Cursor on Target data to standard NATO Symbol Identification Codes and to send position information to FalconView
-\end{itemize}}
-%------------------------------------------------
+{College Intern Technical - Medium Range Tactical Systems (MRTS) Control Segment}
+{
+	$\cdot$ Designed a JavaFX GUI for a software demo using SceneBuilder, FXML, and CSS
+	
+	$\cdot$ Created a Tomcat based Java servlet to receive JSON messages through a REST service to parse and translate to a standard message type output to control various services
+	
+	$\cdot$ Utilized JIRA to track Agile style development cycles
+}
+
 \entry
-{Jun. -- Sep. 2014}
+{Jan -- May 2013}
 {Northrop Grumman Corporation}
 {San Diego, California}
-{\emph{College Intern Technical} - Medium Range Tactical Systems (MRTS) Control Segment
-\begin{itemize}
-\item Designed a JavaFX GUI for a software demonstration using SceneBuilder, FXML, CSS, and custom created icons
-\item Created a Tomcat based Java servlet to receive JSON messages through a REST service to parse and translate to a standard message type output to control various services
-\item Utilized JIRA to track Agile style development cycles
-\end{itemize}}
-%------------------------------------------------
-\entry
-{Jun. -- Sep. 2015}
-{Northrop Grumman Corporation}
-{San Diego, California}
-{\emph{College Intern Technical} - Medium Range Tactical Systems (MRTS) Control Segment
-\begin{itemize}
-\item Created a Java-based AIS ship simulator and a Sonobuoy message generator
-\item Migrated and tested proprietary internal software features to new software codebase
-\item Used the Java WorldWind mapping library and STANAG S4607 messaging protocol to draw MTI hits on a map
-\end{itemize}}
-\end{entrylist}
+{High School Involvement Program Intern - Firebird Ground Control Segment (GCS)}
+{
+	$\cdot$ Created templates to efficiently create user interface icons displayed in a status panel
+
+	$\cdot$ Configured proprietary mapping software for use with Global Mapper to create map layers with imagery
+
+	$\cdot$ Created utilities and unit tests to convert Cursor on Target data to standard NATO Symbol Identification Codes and to send position information to FalconView
+}
 
 %----------------------------------------------------------------------------------------
 %	ADDITIONAL EXPERIENCE SECTION
@@ -108,41 +183,34 @@ HTML, CSS, Java, JavaScript, C++, Git, SVN, Graphic Design, Microsoft Office, Mi
 
 \section{Additional Experience}
 
-\begin{entrylist}
-%------------------------------------------------
 \entry
 {Ongoing}
 {rhoCode Consulting}
-{ }
-{\emph{Consultant, Co-founder}
-\begin{itemize}
-\item Frontend designer and consultant (rhoCode.com)
-\item Designed residential listing website for college students (Res-Ex.net)
-\end{itemize}}
+{San Diego, California}
+{Consultant, Co-founder}
+{
+	$\cdot$ Frontend designer and consultant -- rhoCode.com
+
+	$\cdot$ Designed residential listing website for college students -- Res-Ex.net
+}
+
 \entry
 {Ongoing}
 {Projects}
-{ }
-{\emph{Online}
-\begin{itemize}
-\item Design, maintenance and server administration of personal website and server
-\item Created a backend Node.js server which utilizes browser geolocation to return current temperature
-\item Created an Android app using ArcGIS API for the Citrus Hack Hackathon
-\item Design and maintenance of a gaming community website
-\item Designed non-profit organization website (Tzu Chi Foundation San Diego)
-\end{itemize}}
-%------------------------------------------------
-\entry
-{2011-2012}
-{Mt. Carmel High School Robotics Club}
-{San Diego, California}
-{\emph{President, Co-founder}
-\begin{itemize}
-\item Managed progress of teams and ensured members stayed on task
-\item Created rules and guidelines to be used as future reference for club members
-\end{itemize}}
+{Various}
+{Various}
+{%
+	$\cdot$ Design, maintenance and server administration of personal website and server
 
-\end{entrylist}
+	$\cdot$ Created a Node.js server to process browser geolocation to return current temperature
+
+	$\cdot$ Created an Android app using ArcGIS API during the Citrus Hack Hackathon
+
+	$\cdot$ Design and maintenance of a gaming community website
+
+	$\cdot$ Designed non-profit organization website
+
+}
 
 %----------------------------------------------------------------------------------------
 %	ADDITIONAL INFORMATION SECTION
@@ -150,22 +218,19 @@ HTML, CSS, Java, JavaScript, C++, Git, SVN, Graphic Design, Microsoft Office, Mi
 
 \section{Additional Information}
 
-\begin{entrylist}
-%------------------------------------------------
 \entry
 {2012}
 {Eagle Scout}
 {Boy Scouts of America}
 {}
-%------------------------------------------------
+{}
+
 \entry
 {2014}
 {Active Secret Security Clearance}
 {United States Government}
 {}
-%------------------------------------------------
-\end{entrylist}
-
+{}
 
 %----------------------------------------------------------------------------------------
 
