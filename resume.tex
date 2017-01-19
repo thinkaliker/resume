@@ -11,9 +11,6 @@
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-% Important notes:
-% This template needs to be compiled with XeLaTeX and the bibliography, if used,
-% needs to be compiled with biber rather than bibtex.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -37,28 +34,63 @@
 \setlength{\parindent}{0.5cm}
 
 \newcommand{\entry}[5]{%
-	{\fontsize{11pt}{11pt} \parbox{2.75cm}{ #1 } }%
-	\parbox[t]{15cm}{%
-		\fontsize{11pt}{11pt}\textbf{#2}%
-		{\footnotesize\emph{-- #3}}%
+	{\fontsize{11pt}{11pt}  }%
+	\parbox[t]{16cm}{%
+		
+		\fontsize{11pt}{11pt}\textbf{#1 / #2}%
+		{\footnotesize\emph{ -- #3}}%
 
+	}
 
+	\parbox[t]{15cm}{
+		\parbox{0.5cm}{ \: }
 		{\fontsize{11pt}{11pt}%
 			\emph{#4}%
 		}
 		
-		
-		\parbox[t]{14.5cm}{
+		\parbox{1cm}{\: }
+		\parbox[t]{16cm}{
 			\hangparas{0.5cm}{1}
 			\fontsize{11pt}{11pt}	#5%
 		}
 	}
-	\vspace{0.2cm}%
+	\vspace{0.1cm}%
+}
+
+\newcommand{\entrysmall}[4]{%
+	{\fontsize{11pt}{11pt} }%
+	\parbox[t]{16cm}{%
+		\fontsize{11pt}{11pt}\textbf{#1}%
+		{\footnotesize\emph{-- #2}}%
+
+		\parbox{0.5cm}{ \: }{
+			\emph{#3}%
+		}
+		
+		\parbox{0.5cm}{ \: }%
+		\parbox[t]{16cm}{
+			\hangparas{0.5cm}{1}	#4%
+		}
+	}
+	\\\vspace{0.1cm}%
+}
+
+\newcommand{\additional}[2]{%
+	{\fontsize{11pt}{11pt} }%
+	\parbox[t]{16.5cm}{%
+		\textbf{#1}%
+		
+		\parbox{0.5cm}{ \: }
+		\parbox[t]{16.5cm}{	
+			\hangparas{0.5cm}{1}	#2%
+		}
+	}
+	\\\vspace{0.1cm}%
 }
 
 \newcommand{\skill}[1]{%
-	\parbox[t]{1cm}{$\:$}
-	\parbox[t]{15cm}{%
+	\parbox[t]{0cm}{ \: }
+	\parbox[t]{16cm}{%
 		\fontsize{11pt}{11pt}%
 		{%
 			\begin{raggedright}%
@@ -74,25 +106,25 @@
 	\node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3cm] (box) at (current page.north){};
 	
 	\node [anchor=north] (name) at (box) {%
-		\fontsize{20pt}{10pt}%
+		\fontsize{18pt}{12pt}%
 		{\roboto #1 }{\roboto #2 }{\fontseries{l}\selectfont - #3}
 	};
 	\node [anchor=north] at (name.south) {%
-		\fontsize{14pt}{14pt}%
+		\fontsize{14pt}{12pt}%
 		{\fontseries{l}\selectfont #4} -- {\fontseries{l}\selectfont #5}%
 	};
 	\end{tikzpicture}
-	\vspace{1cm}
+	\vspace{1.1cm}%
 
 }
 
 \renewcommand{\section}[1]{
-	\par\vspace{0.1cm}
+	\par
 	{%
-		\fontsize{12pt}{12pt}\fontseries{b}\selectfont
+		\fontsize{13pt}{12pt}\fontseries{b}\selectfont
 		{#1}
 	}
-	\par\vspace{0.1cm}
+	\par\vspace{0.1cm}%
 }
 
 \pagestyle{empty}
@@ -121,7 +153,7 @@
 {June 2017}
 {University of California, Riverside}
 {Riverside, California}
-{Undergraduate Computer Science}
+{B.S. Computer Science}
 {}
 
 %----------------------------------------------------------------------------------------
@@ -129,7 +161,7 @@
 %----------------------------------------------------------------------------------------
 
 \section{Skills}
-\skill{Java, HTML, C++, CSS, JavaScript, C, Git/SVN, Graphic Design, Microsoft Windows, Linux, JIRA/Agile, IIS, Apache}
+\skill{Java, HTML, C++, CSS, JavaScript, C, Git/SVN, Networks/Web, Graphic Design, JIRA/Agile}
 
 
 %----------------------------------------------------------------------------------------
@@ -143,7 +175,11 @@
 {San Diego, California}
 {College Intern Technical - Tactical Autonomous Systems (TAS) Control Segment}
 {
-	$\cdot$ Currently in progress
+	$\cdot$ Wrote and reviewed technical system requirements for TERN
+
+	$\cdot$ Developed a Java service to monitor a physical Emergency Shutdown Switch via Modbus over IP and signal the air vehicle to perform an emergency shutdown
+
+	$\cdot$ Developed a C++ program to set the internal system time of an embedded system via NTP
 	
 }
 
@@ -153,11 +189,11 @@
 {San Diego, California}
 {College Intern Technical - Medium Range Tactical Systems (MRTS) Control Segment}
 {
-	$\cdot$ Created a Java-based AIS ship simulator and a Sonobuoy message generator
+	$\cdot$ Developed a AIS ship simulator and a Sonobuoy message generator in Java
 	
 	$\cdot$ Migrated and tested proprietary internal software features to new codebase
 	
-	$\cdot$ Used the Java WorldWind library and STANAG S4607 messaging protocol to draw MTI hits on a map
+	$\cdot$ Drew MTI hits on a map using the Java WorldWind library and STANAG S4607 messaging protocol
 	
 }
 
@@ -169,9 +205,9 @@
 {
 	$\cdot$ Designed a JavaFX GUI for a software demo using SceneBuilder, FXML, and CSS
 	
-	$\cdot$ Created a Tomcat based Java servlet to receive JSON messages through a REST service to parse and translate to a standard message output to control various services
+	$\cdot$ Developed a Java servlet to receive JSON messages through a REST service in order to parse and translate into a standard message output to control various services
 	
-	$\cdot$ Utilized JIRA to track Agile style development cycles
+	$\cdot$ Tracked Agile style development cycles using JIRA
 }
 
 \entry
@@ -193,8 +229,7 @@
 
 \section{Additional Experience}
 
-\entry
-{Ongoing}
+\entrysmall
 {rhoCode Consulting}
 {San Diego, California}
 {Consultant, Co-founder}
@@ -204,19 +239,16 @@
 	$\cdot$ Designed residential listing website for college students -- Res-Ex.net
 }
 
-\entry
-{Ongoing}
+\additional
 {Projects}
-{Various}
-{Various}
 {%
-	$\cdot$ Design, maintenance and server administration of personal website and server
+	$\cdot$ Design, maintenance and server administration of personal websites and servers
 
-	$\cdot$ Created a frontend web interface to display and provide logic for a restaurant chooser (Won Cutie Hack 2016 Business Award)
+	$\cdot$ Created a frontend web interface to prompt and display results for a restaurant decision helper (Won Cutie Hack 2016 Business Award)
 
-	$\cdot$ Created a Node.js server to process browser geolocation to return current temperature
+	$\cdot$ Created a Node.js server to process browser geolocation to return current temperature and store in a Firebase database
 
-	$\cdot$ Created an Android app using ArcGIS API during the Citrus Hack Hackathon
+	$\cdot$ Created an Android app using ArcGIS API during the Citrus Hack 2015 Hackathon
 
 	$\cdot$ Design and maintenance of a gaming community website
 
@@ -230,12 +262,9 @@
 
 \section{Additional Information}
 
-\entry
-{2012}
-{Eagle Scout}
+\additional
+{Eagle Scout (2012)}
 {Boy Scouts of America}
-{}
-{}
 
 %----------------------------------------------------------------------------------------
 
